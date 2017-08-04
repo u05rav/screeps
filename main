@@ -1,6 +1,7 @@
 // main
 
 var roleUpgrader = require('role.upgrader');
+var roleHarvester = require('role.harvester');
 
 module.exports.loop = function() {
     
@@ -27,11 +28,20 @@ module.exports.loop = function() {
         Game.spawns.Spawn1.createCreep([WORK,WORK,CARRY,MOVE],undefined, {role:'upgrader', working:false});
     }
 
+    if ( numHarvesters < targetHarvesters ){
+        console.log("attempting to spawn Harvester");
+        Game.spawns.Spawn1.createCreep([WORK,WORK,CARRY,MOVE],undefined, {role:'harvester', working:false});
+    }
+
     for (let name in Game.creeps){
         var creep = Game.creeps[name];
 
         if (creep.memory.role == 'upgrader'){
             roleUpgrader.run(creep);
+        }
+
+        if (creep.memory.role == 'harvester'){
+            roleHarvester.run(creep);
         }
     }
 
