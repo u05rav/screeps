@@ -12,7 +12,7 @@ module.exports.loop = function() {
     }
 
     var numUpgraders = _.sum(Game.creeps,(c) => c.memory.role == 'upgrader');
-    var numHarvester = _.sum(Game.creeps,(c) => c.memory.role == 'harvester');
+    var numHarvesters = _.sum(Game.creeps,(c) => c.memory.role == 'harvester');
 
     console.log("Harvesters = "+numHarvesters);   
 
