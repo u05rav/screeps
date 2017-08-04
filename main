@@ -18,6 +18,10 @@ module.exports.loop = function() {
     var targetHarvesters = 1
 
     console.log("Harvesters = "+numHarvesters+"/"+targetHarvesters);   
-    console.log("Harvesters = "+numUpgraders+"/"+targetUpgraders);   
+    console.log("Harvesters = "+numUpgraders+"/"+targetUpgraders);
+
+    if ( numUpgraders < targetUpgraders ){
+        console.log("attempting to spawn Upgrader");
+    }
 
 }
