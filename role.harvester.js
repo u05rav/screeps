@@ -38,8 +38,6 @@ module.exports = {
 
         var body = [];
 
-        console.log("size = "+size);
-
         for (let i=0 ; i<size ; i++){
             body.push(WORK);
             body.push(WORK);
@@ -47,7 +45,6 @@ module.exports = {
             body.push(MOVE);
         }
 
-        console.log("returning body: "+body);
         return body;
     }
 }

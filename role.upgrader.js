@@ -30,10 +30,10 @@ module.exports = {
         var body = [];
 
         for (let i=0 ; i<size ; i++){
-            body.push[WORK];
-            body.push[WORK];
-            body.push[CARRY];
-            body.push[MOVE];
+            body.push(WORK);
+            body.push(WORK);
+            body.push(CARRY);
+            body.push(MOVE);
         }
         return body;
     }
