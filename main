@@ -12,7 +12,7 @@ module.exports.loop = function() {
             // if not, delete the memory entry
             delete Memory.creeps[name];
         }else{
-            Game.creeps[name].say(Game.creeps[name].role);
+            Game.creeps[name].say(Game.creeps[name].memory.role);
         }
     }
 
