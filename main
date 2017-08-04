@@ -1,5 +1,7 @@
 // main
 
+var roleUpgrader = require(role.upgrader');
+
 module.exports.loop = function() {
     
     // check for memory entries of dead creeps by iterating over Memory.creeps
@@ -23,6 +25,14 @@ module.exports.loop = function() {
     if ( numUpgraders < targetUpgraders ){
         console.log("attempting to spawn Upgrader");
         Game.spawns.Spawn1.createCreep([WORK,WORK,CARRY,MOVE],undefined, {role:'upgrader', working:false});
+    }
+
+    for (let name in Game.creeps){
+        var creep = Game.creeps[name];
+
+        if (creep.memory.role == 'upgrader'){
+            roleUpgrader.run(creep);
+        }
     }
 
 }
