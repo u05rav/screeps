@@ -29,4 +29,8 @@ module.exports = {
             }
         }
     }
+
+    body: function(energy){
+        retun [WORK,WORK,CARRY,MOVE];
+    }
 }
