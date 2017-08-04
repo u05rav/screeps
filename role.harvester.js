@@ -1,4 +1,5 @@
 var roleUpgrader = require('role.upgrader');
+var roleBuilder = require('role.builder');
 
 module.exports = {
     run: function(creep){
@@ -16,7 +17,7 @@ module.exports = {
 
             var target = creep.pos.findClosestByPath(FIND_MY_STRUCTURES, {filter:(s) => s.energy < s.energyCapacity});
             if(target == undefined){
-                roleUpgrader.run(creep);
+                roleBuilder.run(creep);
             }else if(creep.transfer(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
                 creep.moveTo(target);
             }
