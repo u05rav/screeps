@@ -1,5 +1,7 @@
 // main
 
+require('prototype.spawn')();
+
 var roleUpgrader = require('role.upgrader');
 var roleHarvester = require('role.harvester');
 var roleBuilder = require('role.builder');
