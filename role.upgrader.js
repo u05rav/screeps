@@ -12,6 +12,9 @@ module.exports = {
 
         if(creep.memory.working){
             console.log("working");
+            if(creep.upgraderController(creep.room.controller) == ERR_NOT_IN_RANGE){
+                creep.moveTo(creep.room.controller);
+            }
         }else{
             console.log("not working");
             var source = creep.pos.findClosestByPath(FIND_SOURCES_ACTIVE);
