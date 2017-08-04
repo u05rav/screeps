@@ -1,5 +1,11 @@
 module.exports = {
     run: function(creep){
-        console.log("upgrader running");
+        if(creep.memory.working){
+            console.log("working");
+        }else{
+            console.log("not working");
+        }
+
+
     }
 }
