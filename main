@@ -31,7 +31,7 @@ module.exports.loop = function() {
     console.log("Upgraders = "+numUpgraders+"/"+targetUpgraders);
     console.log("Builders = "+numBuilders+"/"+targetBuilders);
 
-    var thisRoom = Game.spawns.spawn1.room;
+    var thisRoom = Game.spawns.Spawn1.room;
 
     var energy = thisRoom.energyCapacityAvailable;
 
