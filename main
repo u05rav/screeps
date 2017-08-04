@@ -21,14 +21,12 @@ module.exports.loop = function() {
     var targetHarvesters = 1
 
     console.log("Harvesters = "+numHarvesters+"/"+targetHarvesters);   
-    console.log("Harvesters = "+numUpgraders+"/"+targetUpgraders);
+    console.log("Upgraders = "+numUpgraders+"/"+targetUpgraders);
 
     if ( numUpgraders < targetUpgraders ){
         console.log("attempting to spawn Upgrader");
         Game.spawns.Spawn1.createCreep([WORK,WORK,CARRY,MOVE],undefined, {role:'upgrader', working:false});
-    }
-
-    if ( numHarvesters < targetHarvesters ){
+    }else if ( numHarvesters < targetHarvesters ){
         console.log("attempting to spawn Harvester");
         Game.spawns.Spawn1.createCreep([WORK,WORK,CARRY,MOVE],undefined, {role:'harvester', working:false});
     }
