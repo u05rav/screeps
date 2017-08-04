@@ -20,7 +20,7 @@ module.exports.loop = function() {
     var numHarvesters = _.sum(Game.creeps,(c) => c.memory.role == 'harvester');
 
     var targetUpgraders = 1
-    var targetHarvesters = 1
+    var targetHarvesters = 10
 
     console.log("Harvesters = "+numHarvesters+"/"+targetHarvesters);   
     console.log("Upgraders = "+numUpgraders+"/"+targetUpgraders);
