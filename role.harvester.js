@@ -44,6 +44,8 @@ module.exports = {
             body.push[CARRY];
             body.push[MOVE];
         }
+
+        console.log("returning body: "+body);
         return body;
     }
 }
