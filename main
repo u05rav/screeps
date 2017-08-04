@@ -22,6 +22,7 @@ module.exports.loop = function() {
 
     if ( numUpgraders < targetUpgraders ){
         console.log("attempting to spawn Upgrader");
+        Game.spawns.Spawn1.createCreep([WORK,WORK,CARRY,MOVE],undefined, {role:'upgrader', working:false});
     }
 
 }
