@@ -39,7 +39,8 @@ module.exports.loop = function() {
 
     if ( numHarvesters < targetHarvesters ){
         console.log("attempting to spawn Harvester");
-        Game.spawns.Spawn1.createCustomCreep(energy, 'harvester');
+        var ret = Game.spawns.Spawn1.createCustomCreep(energy, 'harvester');
+        console.log("return = "+ret);
     }else if ( numUpgraders < targetUpgraders ){
         console.log("attempting to spawn Upgrader");
         Game.spawns.Spawn1.createCustomCreep(energy, 'upgrader');
