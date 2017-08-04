@@ -17,6 +17,8 @@ module.exports = function(){
                 body = builder.body(energy);
             }
 
+            console.log("body = "+body)
+
             return this.createCreep(body ,undefined, {role:role, working:false});
         }
 
