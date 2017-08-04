@@ -39,10 +39,10 @@ module.exports.loop = function() {
         Game.spawns.Spawn1.createCustomCreep(energy, 'harvester');
     }else if ( numUpgraders < targetUpgraders ){
         console.log("attempting to spawn Upgrader");
-        Game.spawns.Spawn1.createCustomCreep(energy, 'harvester');
+        Game.spawns.Spawn1.createCustomCreep(energy, 'upgrader');
     }else if ( numBuilders < targetBuilders ){
         console.log("attempting to spawn Builder");
-        Game.spawns.Spawn1.createCustomCreep(energy, 'harvester');
+        Game.spawns.Spawn1.createCustomCreep(energy, 'builder');
     }
 
     for (let name in Game.creeps){
