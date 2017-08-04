@@ -1,5 +1,6 @@
 // main
 
+
 require('prototype.spawner')();
 
 var roleUpgrader = require('role.upgrader');
