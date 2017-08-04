@@ -33,13 +33,13 @@ module.exports.loop = function() {
 
     if ( numHarvesters < targetHarvesters ){
         console.log("attempting to spawn Harvester");
-        createCustomCreep(energy, 'harvester');
+        Game.spawns.Spawn1.createCustomCreep(energy, 'harvester');
     }else if ( numUpgraders < targetUpgraders ){
         console.log("attempting to spawn Upgrader");
-        createCustomCreep(energy, 'harvester');
+        Game.spawns.Spawn1.createCustomCreep(energy, 'harvester');
     }else if ( numBuilders < targetBuilders ){
         console.log("attempting to spawn Builder");
-        createCustomCreep(energy, 'harvester');
+        Game.spawns.Spawn1.createCustomCreep(energy, 'harvester');
     }
 
     for (let name in Game.creeps){
