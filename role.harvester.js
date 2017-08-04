@@ -31,6 +31,6 @@ module.exports = {
     },
 
     body: function(energy){
-        retun [WORK,WORK,CARRY,MOVE];
+        return [WORK,WORK,CARRY,MOVE];
     }
 }
