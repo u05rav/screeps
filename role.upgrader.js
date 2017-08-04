@@ -5,7 +5,7 @@ module.exports = {
             creep.memory.working = false;
         }
 
-        if(creep.memory.working == false && creep.carty.energy == creep.carryCapacity)
+        if(creep.memory.working == false && creep.carry.energy == creep.carryCapacity){
             creep.memory.working = true;
         }
             
