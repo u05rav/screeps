@@ -1,1 +1,5 @@
 // main
+
+module.exports.loop = function() {
+    console.log("hello")
+}
