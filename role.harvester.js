@@ -31,6 +31,18 @@ module.exports = {
     },
 
     body: function(energy){
-        return [WORK,WORK,CARRY,MOVE];
+
+        var cost = 300;
+        var size = Math.floor(energy/cost);
+
+        var body = [];
+
+        for (let i=0 ; i<size ; i++){
+            body.push[WORK];
+            body.push[WORK];
+            body.push[CARRY];
+            body.push[MOVE];
+        }
+        return body;
     }
 }
