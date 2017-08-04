@@ -1,5 +1,19 @@
 // main
 
 module.exports.loop = function() {
-    console.log("hello")
+    
+    // check for memory entries of dead creeps by iterating over Memory.creeps
+    for (let name in Memory.creeps) {
+        // and checking if the creep is still alive
+        if (Game.creeps[name] == undefined) {
+            // if not, delete the memory entry
+            delete Memory.creeps[name];
+        }
+    }
+
+    var numUpgraders = _.sum(Game.creeps,(c) => c.memory.role == 'upgrader');
+    var numHarvester = _.sum(Game.creeps,(c) => c.memory.role == 'harvester');
+
+    console.log("Harvesters = "+numHarversters);   
+
 }
