@@ -1,3 +1,5 @@
+var roleUpgrader = require('role.upgrader');
+
 module.exports = {
     run: function(creep){
 
@@ -11,9 +13,15 @@ module.exports = {
             
 
         if(creep.memory.working){
-            if(creep.transfer(Game.spawns.Spawn1, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
-                creep.moveTo(Game.spawns.Spawn1);
+
+            var target = creep.pos.findClosestByPath(FIND_MY_STRUCTURES, {filter:(s) => s.energy < s.energyCapacity});
+            if(target == undefined){
+                roleUpgrader.run(creep);
+            }else if(creep.transfer(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
+                creep.moveTo(target);
             }
+
+
         }else{
             var source = creep.pos.findClosestByPath(FIND_SOURCES_ACTIVE);
             if(creep.harvest(source) == ERR_NOT_IN_RANGE){
