@@ -1,6 +1,6 @@
 // main
 
-var roleUpgrader = require(role.upgrader');
+var roleUpgrader = require('role.upgrader');
 
 module.exports.loop = function() {
     
