@@ -11,7 +11,7 @@ module.exports.loop = function() {
         if (Game.creeps[name] == undefined) {
             // if not, delete the memory entry
             delete Memory.creeps[name];
-        }else{
+        }else if (Game.time % 5 == 0){
             Game.creeps[name].say(Game.creeps[name].memory.role);
         }
     }
