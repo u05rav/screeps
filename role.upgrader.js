@@ -20,9 +20,9 @@ module.exports = {
                 creep.moveTo(source);
             }
         }
-    }
+    };
 
     body: function(energy){
         retun [WORK,WORK,CARRY,MOVE];
-    }
+    };
 }
