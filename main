@@ -31,9 +31,11 @@ module.exports.loop = function() {
     console.log("Upgraders = "+numUpgraders+"/"+targetUpgraders);
     console.log("Builders = "+numBuilders+"/"+targetBuilders);
 
-    var energy = Game.spawns.Spawn1.room.energyCapacityAvailable;
+    var thisRoom = Game.spawns.spawn1.room;
 
-    console.log("Energy:"+Game.spawn.Spawn1.room.energy+"/"+Game.spawns.Spawn1.room.energyCapacityAvailable);
+    var energy = thisRoom.energyCapacityAvailable;
+
+    console.log("Energy:"+thisRoom.energy+"/"+thisRoom.energyCapacityAvailable);
 
     if ( numHarvesters < targetHarvesters ){
         console.log("attempting to spawn Harvester");
