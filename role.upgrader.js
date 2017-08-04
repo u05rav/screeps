@@ -12,7 +12,7 @@ module.exports = {
 
         if(creep.memory.working){
             console.log("working");
-            if(creep.upgraderController(creep.room.controller) == ERR_NOT_IN_RANGE){
+            if(creep.upgradeController(creep.room.controller) == ERR_NOT_IN_RANGE){
                 creep.moveTo(creep.room.controller);
             }
         }else{
