@@ -6,6 +6,7 @@ require('prototype.spawner')();
 var roleUpgrader = require('role.upgrader');
 var roleHarvester = require('role.harvester');
 var roleBuilder = require('role.builder');
+var roleCaretaker = require('role.caretaker');
 
 module.exports.loop = function() {
     
@@ -23,10 +24,12 @@ module.exports.loop = function() {
     var numUpgraders = _.sum(Game.creeps,(c) => c.memory.role == 'upgrader');
     var numHarvesters = _.sum(Game.creeps,(c) => c.memory.role == 'harvester');
     var numBuilders= _.sum(Game.creeps,(c) => c.memory.role == 'builder');
+    var numCaretakers= _.sum(Game.creeps,(c) => c.memory.role == 'caretaker');
 
     var targetUpgraders = 2
     var targetHarvesters = 2
     var targetBuilders = 1
+    var targetCaretakers = 1
 
     console.log("Harvesters = "+numHarvesters+"/"+targetHarvesters);   
     console.log("Upgraders = "+numUpgraders+"/"+targetUpgraders);
@@ -48,6 +51,9 @@ module.exports.loop = function() {
     }else if ( numBuilders < targetBuilders ){
         console.log("attempting to spawn Builder");
         Game.spawns.Spawn1.createCustomCreep(energy, 'builder');
+    }else if ( numCaretakers < targetCaretakers ){
+        console.log("attempting to spawn Caretaker");
+        Game.spawns.Spawn1.createCustomCreep(energy, 'caretaker');
     }
 
     for (let name in Game.creeps){
@@ -63,6 +69,10 @@ module.exports.loop = function() {
 
         if (creep.memory.role == 'builder'){
             roleBuilder.run(creep);
+        }
+
+        if (creep.memory.role == 'caretaker'){
+            roleCaretaker.run(creep);
         }
     }
 
