@@ -17,6 +17,10 @@ module.exports = {
 
             var target = creep.pos.findClosestByPath(FIND_MY_STRUCTURES, {filter:(s) => s.structureType == STRUCTURE_TOWER && s.energy < s.energyCapacity});
 
+	    if(target == undefined){
+	    	target = creep.pos.findClosestByPath(FIND_MY_STRUCTURES, {filter:(s) => s.structureType == STRUCTURE_ROAD && s.hits < s.hitsMax});
+	    }
+
             if(target == undefined){
                 roleBuilder.run(creep);
             }else if(creep.transfer(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
