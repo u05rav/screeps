@@ -75,6 +75,10 @@ module.exports.loop = function() {
         if (creep.memory.role == 'caretaker'){
             roleCaretaker.run(creep);
         }
+
     }
 
+    var hostiles = Game.rooms[roomName].find(FIND_HOSTILE_CREEPS);
+    var towers = Game.rooms[roomName].find(FIND_MY_STRUCTURES, {filter: {structureType: STRUCTURE_TOWER}});
+    towers.forEach(tower => tower.attack(hostiles[0]));
 }
