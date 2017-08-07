@@ -85,6 +85,6 @@ module.exports.loop = function() {
     var exits = Game.map.describeExits(thisRoom.name);
 
     for (let exit in exits){
-        console.log(exit+":"+exists[exit]);
+        console.log(exit[1]);
     }
 }
