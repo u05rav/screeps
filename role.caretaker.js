@@ -24,10 +24,12 @@ module.exports = {
                     roleBuilder.run(creep);
                 }else{
                     if(creep.repair(road) == ERR_NOT_IN_RANGE){
+                        console.log("moving to road");
                         creep.moveTo(road);
                     }
                 }
             }else if(creep.transfer(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
+                console.log("moving to tower");
                 creep.moveTo(target);
             }
 
@@ -35,6 +37,7 @@ module.exports = {
         }else{
             var source = creep.pos.findClosestByPath(FIND_SOURCES_ACTIVE);
             if(creep.harvest(source) == ERR_NOT_IN_RANGE){
+                console.log("moving to source");
                 creep.moveTo(source);
             }
         }
