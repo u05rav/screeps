@@ -18,6 +18,8 @@ module.exports.loop = function() {
             delete Memory.creeps[name];
         }else if (Game.time % 5 == 0){
             Game.creeps[name].say(Game.creeps[name].memory.role);
+        }else if (Game.creeps[name].fatique > 0){
+            Game.creeps[name].say("Tired!");
         }
     }
 
