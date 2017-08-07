@@ -35,12 +35,6 @@ module.exports = {
             }else{
                 if(creep.pickup(looseEnergy)==ERR_NOT_IN_RANGE){
                     creep.moveTo(looseEnergy);
-                }else{
-
-                    var carry = creep.carry;
-                    Object.keys(carry).forEach(function(key) {
-                            console.log(key, carry[key]);
-                    });
                 }
             }
         }
