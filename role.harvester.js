@@ -25,7 +25,7 @@ module.exports = {
 
         }else{
 
-            var looseEnergy = creep.pos.findClosestByPath(FIND_DROPPED_ENERGY);
+            var looseEnergy = creep.pos.findClosestByPath(FIND_DROPPED_RESOURCES);
 
             if(looseEnergy == undefined){
                 var source = creep.pos.findClosestByPath(FIND_SOURCES_ACTIVE);
@@ -33,8 +33,8 @@ module.exports = {
                     creep.moveTo(source);
                 }
             }else{
-                if(creep.pickup(energy)==ERR_NOT_IN_RANGE){
-                    creep.moveTo(energy);
+                if(creep.pickup(looseEnergy)==ERR_NOT_IN_RANGE){
+                    creep.moveTo(looseEnergy);
                 }
             }
         }
