@@ -24,9 +24,18 @@ module.exports = {
 
 
         }else{
-            var source = creep.pos.findClosestByPath(FIND_SOURCES_ACTIVE);
-            if(creep.harvest(source) == ERR_NOT_IN_RANGE){
-                creep.moveTo(source);
+
+            var looseEnergy = creep.pos.findClosestByPath(FIND_DROPPED_ENERGY);
+
+            if(looseEnergy == undefined){
+                var source = creep.pos.findClosestByPath(FIND_SOURCES_ACTIVE);
+                if(creep.harvest(source) == ERR_NOT_IN_RANGE){
+                    creep.moveTo(source);
+                }
+            }else{
+                if(creep.pickup(energy)==ERR_NOT_IN_RANGE){
+                    creep.moveTo(energy);
+                }
             }
         }
     },
