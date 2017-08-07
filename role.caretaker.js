@@ -19,7 +19,7 @@ module.exports = {
 
             if(target == undefined){
 
-                var road = creep.pos.findClosestByPath(FIND_MY_STRUCTURES, {filter:(s) => s.structureType == STRUCTURE_ROAD && s.hits < s.hitsMax});
+                var road = creep.pos.findClosestByPath(FIND_STRUCTURES, {filter:(s) => s.structureType == STRUCTURE_ROAD && s.hits < s.hitsMax});
                 if (road == undefined){
                     console.log("caretaker is building");
                     roleBuilder.run(creep);
