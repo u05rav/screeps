@@ -81,4 +81,6 @@ module.exports.loop = function() {
     var hostiles = thisRoom.find(FIND_HOSTILE_CREEPS);
     var towers = thisRoom.find(FIND_MY_STRUCTURES, {filter: {structureType: STRUCTURE_TOWER}});
     towers.forEach(tower => tower.attack(hostiles[0]));
+
+    console.log(Game.map.describeExits());
 }
