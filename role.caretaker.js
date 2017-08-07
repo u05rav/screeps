@@ -21,6 +21,7 @@ module.exports = {
 
                 var road = creep.pos.findClosestByPath(FIND_MY_STRUCTURES, {filter:(s) => s.structureType == STRUCTURE_ROAD && s.hits < s.hitsMax});
                 if (road == undefined){
+                    console.log("caretaker is building");
                     roleBuilder.run(creep);
                 }else{
                     if(creep.repair(road) == ERR_NOT_IN_RANGE){
