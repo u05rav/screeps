@@ -4,11 +4,11 @@ var roleBuilder = require('role.builder');
 module.exports = {
     run: function(creep){
 
-        if(creep.memory.working == true && creep.carry.energy == 0){
+        if(creep.memory.working == true && _sum.(creep.carry) == 0){
             creep.memory.working = false;
         }
 
-        if(creep.memory.working == false && creep.carry.energy == creep.carryCapacity){
+        if(creep.memory.working == false && _.sum(creep.carry) == creep.carryCapacity){
             creep.memory.working = true;
         }
             
