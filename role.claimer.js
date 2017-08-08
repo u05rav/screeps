@@ -9,14 +9,14 @@ module.exports = {
         var currentRoom = creep.room.name;
 
         console.log("currentRoom = "+currentRoom);
-        console.log("targetRoom = "+creep.memory.targetRoom);
+        console.log("targetRoom = "+creep.memory.target);
         console.log("working = "+creep.memory.working);
 
-        if(creep.memory.working == true && currentRoom == creep.memory.targetRoom){
+        if(creep.memory.working == true && currentRoom == creep.memory.target){
             creep.memory.working = false;
         }
 
-        if(creep.memory.working == false && currentRoom != creep.memory.targetRoom){
+        if(creep.memory.working == false && currentRoom != creep.memory.target){
             creep.memory.working = true;
         }
             
