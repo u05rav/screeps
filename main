@@ -23,6 +23,7 @@ module.exports.loop = function() {
         }
     }
 
+    var thisRoom = Game.spawns.Spawn1.room;
     const exits = Game.map.describeExits(thisRoom.name);
 
     var targetRoom = undefined;
@@ -52,7 +53,6 @@ module.exports.loop = function() {
  //   console.log("Builders = "+numBuilders+"/"+targetBuilders);
  //   console.log("Caretakers = "+numCaretakers+"/"+targetCaretakers);
 
-    var thisRoom = Game.spawns.Spawn1.room;
 
     var energy = thisRoom.energyCapacityAvailable;
 
