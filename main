@@ -7,6 +7,7 @@ var roleUpgrader = require('role.upgrader');
 var roleHarvester = require('role.harvester');
 var roleBuilder = require('role.builder');
 var roleCaretaker = require('role.caretaker');
+var roleClaimer = require('role.claimer');
 
 module.exports.loop = function() {
     
@@ -89,6 +90,9 @@ module.exports.loop = function() {
             roleCaretaker.run(creep);
         }
 
+        if (creep.memory.role == 'claimer'){
+            roleClaimer.run(creep);
+        }
     }
 
     var hostiles = thisRoom.find(FIND_HOSTILE_CREEPS);

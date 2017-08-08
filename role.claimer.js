@@ -10,6 +10,7 @@ module.exports = {
 
         console.log("currentRoom = "+currentRoom);
         console.log("targetRoom = "+creep.memory.targetRoom);
+        console.log("working = "+creep.memory.working);
 
         if(creep.memory.working == true && currentRoom == creep.memory.targetRoom){
             creep.memory.working = false;
