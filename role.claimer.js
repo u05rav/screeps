@@ -32,7 +32,7 @@ module.exports = {
 
     body: function(energy){
 
-        var cost = 700;
+        var cost = 850;
         var size = Math.floor(energy/cost);
 
         var body = [];
@@ -40,6 +40,8 @@ module.exports = {
         for (let i=0 ; i<size ; i++){
             body.push(MOVE);
             body.push(MOVE);
+            body.push(WORK);
+            body.push(CARRY);
             body.push(CLAIM);
         }
 

@@ -37,6 +37,8 @@ module.exports.loop = function() {
         }
     }
 
+    console.log("targetRoom = "+targetRoom");
+
     var numUpgraders = _.sum(Game.creeps,(c) => c.memory.role == 'upgrader');
     var numHarvesters = _.sum(Game.creeps,(c) => c.memory.role == 'harvester');
     var numBuilders= _.sum(Game.creeps,(c) => c.memory.role == 'builder');
