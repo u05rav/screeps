@@ -14,7 +14,7 @@ module.exports = {
 
             
 
-        if(creep.memory.working){
+        if(!creep.memory.working){
             creep.moveTo(creep.pos.findClosestByPath(creep.room.findExitTo(creep.memory.target)));
         }else{
 
@@ -28,12 +28,12 @@ module.exports = {
         }
 
 
-        if(creep.memory.working == true && currentRoom == creep.memory.target){
-            creep.memory.working = false;
+        if(creep.memory.working == false && currentRoom == creep.memory.target){
+            creep.memory.working = true;
         }
 
-        if(creep.memory.working == false && currentRoom != creep.memory.target){
-            creep.memory.working = true;
+        if(creep.memory.working == true && currentRoom != creep.memory.target){
+            creep.memory.working = false;
         }
     },
 
