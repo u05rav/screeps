@@ -86,12 +86,16 @@ module.exports.loop = function() {
 
     const exits = Game.map.describeExits(thisRoom.name);
 
-    console.log("Exits");
-    console.log(exits);
-
+    var targetRoom = undefined;
     for (let exit in exits){
-        console.log(exit);
-        console.log(exits[exit]);
+        var neighbour = exits[exit];
+
+        if (Game.map.isRoomAvailable(neighbour){
+            targetRoom = neighbour;
+            break;
+        }
     }
+
+    console.log("targetRoom = "+targetRoom);
 
 }
