@@ -84,7 +84,7 @@ module.exports.loop = function() {
     var towers = thisRoom.find(FIND_MY_STRUCTURES, {filter: {structureType: STRUCTURE_TOWER}});
     towers.forEach(tower => tower.attack(hostiles[0]));
 
-    var exits = Game.map.describeExists(thisRoom);
+    var exits = Game.map.describeExits(thisRoom);
 
     console.log("Exits");
     for (let exit in exits){
