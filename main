@@ -39,11 +39,11 @@ module.exports.loop = function() {
 
     console.log("targetRoom = "+targetRoom);
 
-    var numUpgraders = _.sum(Game.creeps,(c) => c.memory.role == 'upgrader');
-    var numHarvesters = _.sum(Game.creeps,(c) => c.memory.role == 'harvester');
-    var numBuilders= _.sum(Game.creeps,(c) => c.memory.role == 'builder');
-    var numCaretakers= _.sum(Game.creeps,(c) => c.memory.role == 'caretaker');
-    var numClaimers= _.sum(Game.creeps,(c) => c.memory.role == 'claimers');
+    var numUpgraders = _.sum(Game.creeps,(c) => c.memory.role == 'upgrader' && c.room == thisRoom);
+    var numHarvesters = _.sum(Game.creeps,(c) => c.memory.role == 'harvester' && c.room == thisRoom);
+    var numBuilders= _.sum(Game.creeps,(c) => c.memory.role == 'builder' && c.room == thisRoom);
+    var numCaretakers= _.sum(Game.creeps,(c) => c.memory.role == 'caretaker' && c.room == thisRoom);
+    var numClaimers= _.sum(Game.creeps,(c) => c.memory.role == 'claimers' && c.room == thisRoom);
 
     var targetUpgraders = 1
     var targetHarvesters = 4
