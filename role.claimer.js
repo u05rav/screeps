@@ -4,8 +4,15 @@ var roleBuilder = require('role.builder');
 module.exports = {
     run: function(creep){
 
-
         var currentRoom = creep.room.name;
+        if(creep.memory.working == false && currentRoom == creep.memory.target){
+            creep.memory.working = true;
+        }
+
+        if(creep.memory.working == true && currentRoom != creep.memory.target){
+            creep.memory.working = false;
+        }
+
 
         if(!creep.memory.working){
             creep.moveTo(creep.pos.findClosestByPath(creep.room.findExitTo(creep.memory.target)));
@@ -21,13 +28,6 @@ module.exports = {
         }
 
 
-        if(creep.memory.working == false && currentRoom == creep.memory.target){
-            creep.memory.working = true;
-        }
-
-        if(creep.memory.working == true && currentRoom != creep.memory.target){
-            creep.memory.working = false;
-        }
     },
 
     body: function(energy){
