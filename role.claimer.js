@@ -22,7 +22,7 @@ module.exports = {
             
 
         if(creep.memory.working){
-            creep.moveTo(creep.pos.findClosestByPath(creep.room.findExitTo(creep.memory.targetRoom)));
+            creep.moveTo(creep.pos.findClosestByPath(creep.room.findExitTo(creep.memory.target)));
         }else{
             if(creep.claimController(creep.room.controller) == ERR_NOT_IN_RANGE){
                 creep.moveTo(creep.room.controller);
