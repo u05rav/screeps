@@ -12,13 +12,6 @@ module.exports = {
         console.log("targetRoom = "+creep.memory.target);
         console.log("working = "+creep.memory.working);
 
-        if(creep.memory.working == true && currentRoom == creep.memory.target){
-            creep.memory.working = false;
-        }
-
-        if(creep.memory.working == false && currentRoom != creep.memory.target){
-            creep.memory.working = true;
-        }
             
 
         if(creep.memory.working){
@@ -32,6 +25,15 @@ module.exports = {
                     creep.moveTo(creep.room.controller);
                 }
             }
+        }
+
+
+        if(creep.memory.working == true && currentRoom == creep.memory.target){
+            creep.memory.working = false;
+        }
+
+        if(creep.memory.working == false && currentRoom != creep.memory.target){
+            creep.memory.working = true;
         }
     },
 
