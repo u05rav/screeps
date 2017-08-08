@@ -91,6 +91,7 @@ module.exports.loop = function() {
 
     for (let exit in exits){
         console.log(exit);
+        console.log(exits[exit]);
     }
 
 }
