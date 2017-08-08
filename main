@@ -33,10 +33,10 @@ module.exports.loop = function() {
     var targetBuilders = 1
     var targetCaretakers = 2
 
-    console.log("Harvesters = "+numHarvesters+"/"+targetHarvesters);   
-    console.log("Upgraders = "+numUpgraders+"/"+targetUpgraders);
-    console.log("Builders = "+numBuilders+"/"+targetBuilders);
-    console.log("Caretakers = "+numCaretakers+"/"+targetCaretakers);
+ //   console.log("Harvesters = "+numHarvesters+"/"+targetHarvesters);   
+ //   console.log("Upgraders = "+numUpgraders+"/"+targetUpgraders);
+ //   console.log("Builders = "+numBuilders+"/"+targetBuilders);
+ //   console.log("Caretakers = "+numCaretakers+"/"+targetCaretakers);
 
     var thisRoom = Game.spawns.Spawn1.room;
 
@@ -84,7 +84,7 @@ module.exports.loop = function() {
     var towers = thisRoom.find(FIND_MY_STRUCTURES, {filter: {structureType: STRUCTURE_TOWER}});
     towers.forEach(tower => tower.attack(hostiles[0]));
 
-    var exits = Game.map.describeExits(thisRoom);
+    const exits = Game.map.describeExits(thisRoom);
 
     console.log("Exits");
     for (let exit in exits){
