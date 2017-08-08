@@ -27,7 +27,7 @@ module.exports.loop = function() {
     for (let spawnName in Game.spawns){
 
 
-        var spawn = Game.spawns[spawnNamw];
+        var spawn = Game.spawns[spawnName];
         var thisRoom = spawn.room;
         const exits = Game.map.describeExits(thisRoom.name);
 
