@@ -2,9 +2,14 @@ var roleUpgrader = require('role.upgrader');
 var roleBuilder = require('role.builder');
 
 module.exports = {
-    run: function(creep){
+    run: function(creep)
+
+        console.log("claimer "+creep.name);
 
         var currentRoom = creep.room.name;
+
+        console.log("currentRoom = "+currentRoom);
+        console.log("targetRoom = "+creep.memory.targetRoom);
 
         if(creep.memory.working == true && currentRoom == creep.memory.targetRoom){
             creep.memory.working = false;
