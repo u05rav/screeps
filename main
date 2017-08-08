@@ -51,10 +51,11 @@ module.exports.loop = function() {
     var targetCaretakers = 2
     var targetClaimers = 1
 
- //   console.log("Harvesters = "+numHarvesters+"/"+targetHarvesters);   
- //   console.log("Upgraders = "+numUpgraders+"/"+targetUpgraders);
- //   console.log("Builders = "+numBuilders+"/"+targetBuilders);
- //   console.log("Caretakers = "+numCaretakers+"/"+targetCaretakers);
+    console.log("Harvesters = "+numHarvesters+"/"+targetHarvesters);   
+    console.log("Upgraders = "+numUpgraders+"/"+targetUpgraders);
+    console.log("Builders = "+numBuilders+"/"+targetBuilders);
+    console.log("Caretakers = "+numCaretakers+"/"+targetCaretakers);
+    console.log("Claimers = "+numClaimers+"/"+targetClaimers);
 
 
     var energy = thisRoom.energyCapacityAvailable;

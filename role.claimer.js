@@ -4,15 +4,8 @@ var roleBuilder = require('role.builder');
 module.exports = {
     run: function(creep){
 
-        console.log("claimer "+creep.name);
 
         var currentRoom = creep.room.name;
-
-        console.log("currentRoom = "+currentRoom);
-        console.log("targetRoom = "+creep.memory.target);
-        console.log("working = "+creep.memory.working);
-
-            
 
         if(!creep.memory.working){
             creep.moveTo(creep.pos.findClosestByPath(creep.room.findExitTo(creep.memory.target)));
