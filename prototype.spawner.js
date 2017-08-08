@@ -3,6 +3,7 @@ var harvester = require('role.harvester');
 var upgrader = require('role.upgrader');
 var builder = require('role.builder');
 var caretaker = require('role.caretaker');
+var claimer = require('role.claimer');
 
 module.exports = function(){
     StructureSpawn.prototype.createCustomCreep = 
@@ -18,8 +19,10 @@ module.exports = function(){
                 body = builder.body(energy);
             }else if (role == 'caretaker'){
                 body = caretaker.body(energy);
+            }else if (role == 'claimer'){
+                body = claimer.body(energy);
             }
-            return this.createCreep(body ,undefined, {role:role, working:false});
+            return this.createCreep(body ,undefined, {role:role, working:false, target:targetRoom});
         }
 
 
