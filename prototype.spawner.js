@@ -6,7 +6,7 @@ var caretaker = require('role.caretaker');
 
 module.exports = function(){
     StructureSpawn.prototype.createCustomCreep = 
-        function(energy, role){
+        function(energy, role, targetRoom){
 
             var body = undefined
 
