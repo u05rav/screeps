@@ -42,20 +42,20 @@ module.exports.loop = function() {
 
     var energy = thisRoom.energyCapacityAvailable;
 
-    console.log("Energy:"+thisRoom.energyAvailable+"/"+thisRoom.energyCapacityAvailable);
+ //   console.log("Energy:"+thisRoom.energyAvailable+"/"+thisRoom.energyCapacityAvailable);
 
     if ( numHarvesters < targetHarvesters ){
-        console.log("attempting to spawn Harvester");
+       // console.log("attempting to spawn Harvester");
         var ret = Game.spawns.Spawn1.createCustomCreep(energy, 'harvester');
-        console.log("return = "+ret);
+   //     console.log("return = "+ret);
     }else if ( numUpgraders < targetUpgraders ){
-        console.log("attempting to spawn Upgrader");
+     //   console.log("attempting to spawn Upgrader");
         Game.spawns.Spawn1.createCustomCreep(energy, 'upgrader');
     }else if ( numBuilders < targetBuilders ){
-        console.log("attempting to spawn Builder");
+       // console.log("attempting to spawn Builder");
         Game.spawns.Spawn1.createCustomCreep(energy, 'builder');
     }else if ( numCaretakers < targetCaretakers ){
-        console.log("attempting to spawn Caretaker");
+        //console.log("attempting to spawn Caretaker");
         Game.spawns.Spawn1.createCustomCreep(energy, 'caretaker');
     }
 
@@ -83,4 +83,12 @@ module.exports.loop = function() {
     var hostiles = thisRoom.find(FIND_HOSTILE_CREEPS);
     var towers = thisRoom.find(FIND_MY_STRUCTURES, {filter: {structureType: STRUCTURE_TOWER}});
     towers.forEach(tower => tower.attack(hostiles[0]));
+
+    var exits = Game.map.describeExists(thisRoom);
+
+    console.log("Exits");
+    for (let exit in exits){
+        console.log(exit);
+    }
+
 }
