@@ -53,7 +53,7 @@ module.exports.loop = function() {
         var targetHarvesters = 4
         var targetBuilders = 1
         var targetCaretakers = 2
-        var targetClaimers = 1
+        var targetClaimers = 0
 
         console.log("Harvesters = "+numHarvesters+"/"+targetHarvesters);   
         console.log("Upgraders = "+numUpgraders+"/"+targetUpgraders);
