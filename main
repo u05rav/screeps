@@ -87,6 +87,8 @@ module.exports.loop = function() {
     const exits = Game.map.describeExits(thisRoom);
 
     console.log("Exits");
+    console.log(exits);
+
     for (let exit in exits){
         console.log(exit);
     }
