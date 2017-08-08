@@ -24,83 +24,86 @@ module.exports.loop = function() {
         }
     }
 
-    var thisRoom = Game.spawns.Spawn1.room;
-    const exits = Game.map.describeExits(thisRoom.name);
+    for (let spawn in Game.spawns){
 
-    var targetRoom = undefined;
-    for (let exit in exits){
-        var neighbour = exits[exit];
+        var thisRoom = spawn.room;
+        const exits = Game.map.describeExits(thisRoom.name);
 
-        if (Game.map.isRoomAvailable(neighbour)){
-            targetRoom = neighbour;
-            break;
+        var targetRoom = undefined;
+        for (let exit in exits){
+            var neighbour = exits[exit];
+
+            if (Game.map.isRoomAvailable(neighbour)){
+                targetRoom = neighbour;
+                break;
+            }
         }
+
+        console.log("targetRoom = "+targetRoom);
+
+        var numUpgraders = _.sum(Game.creeps,(c) => c.memory.role == 'upgrader' && c.room == thisRoom);
+        var numHarvesters = _.sum(Game.creeps,(c) => c.memory.role == 'harvester' && c.room == thisRoom);
+        var numBuilders= _.sum(Game.creeps,(c) => c.memory.role == 'builder' && c.room == thisRoom);
+        var numCaretakers= _.sum(Game.creeps,(c) => c.memory.role == 'caretaker' && c.room == thisRoom);
+        var numClaimers= _.sum(Game.creeps,(c) => c.memory.role == 'claimers' && c.room == thisRoom);
+
+        var targetUpgraders = 1
+        var targetHarvesters = 4
+        var targetBuilders = 1
+        var targetCaretakers = 2
+        var targetClaimers = 1
+
+        console.log("Harvesters = "+numHarvesters+"/"+targetHarvesters);   
+        console.log("Upgraders = "+numUpgraders+"/"+targetUpgraders);
+        console.log("Builders = "+numBuilders+"/"+targetBuilders);
+        console.log("Caretakers = "+numCaretakers+"/"+targetCaretakers);
+        console.log("Claimers = "+numClaimers+"/"+targetClaimers);
+
+
+        var energy = thisRoom.energyCapacityAvailable;
+
+     //   console.log("Energy:"+thisRoom.energyAvailable+"/"+thisRoom.energyCapacityAvailable);
+
+        if ( numHarvesters < targetHarvesters ){
+            spawn.createCustomCreep(energy, 'harvester');
+        }else if ( numUpgraders < targetUpgraders ){
+            spawn.createCustomCreep(energy, 'upgrader');
+        }else if ( numBuilders < targetBuilders ){
+            spawn.createCustomCreep(energy, 'builder');
+        }else if ( numCaretakers < targetCaretakers ){
+            spawn.createCustomCreep(energy, 'caretaker');
+        }else if ( numClaimers < targetClaimers ){
+            spawn.createCustomCreep(energy, 'claimer', targetRoom);
+        }
+
+        for (let name in Game.creeps){
+            var creep = Game.creeps[name];
+
+            if (creep.memory.role == 'upgrader'){
+                roleUpgrader.run(creep);
+            }
+
+            if (creep.memory.role == 'harvester'){
+                roleHarvester.run(creep);
+            }
+
+            if (creep.memory.role == 'builder'){
+                roleBuilder.run(creep);
+            }
+
+            if (creep.memory.role == 'caretaker'){
+                roleCaretaker.run(creep);
+            }
+
+            if (creep.memory.role == 'claimer'){
+                roleClaimer.run(creep);
+            }
+        }
+
+        var hostiles = thisRoom.find(FIND_HOSTILE_CREEPS);
+        var towers = thisRoom.find(FIND_MY_STRUCTURES, {filter: {structureType: STRUCTURE_TOWER}});
+        towers.forEach(tower => tower.attack(hostiles[0]));
     }
-
-    console.log("targetRoom = "+targetRoom);
-
-    var numUpgraders = _.sum(Game.creeps,(c) => c.memory.role == 'upgrader' && c.room == thisRoom);
-    var numHarvesters = _.sum(Game.creeps,(c) => c.memory.role == 'harvester' && c.room == thisRoom);
-    var numBuilders= _.sum(Game.creeps,(c) => c.memory.role == 'builder' && c.room == thisRoom);
-    var numCaretakers= _.sum(Game.creeps,(c) => c.memory.role == 'caretaker' && c.room == thisRoom);
-    var numClaimers= _.sum(Game.creeps,(c) => c.memory.role == 'claimers' && c.room == thisRoom);
-
-    var targetUpgraders = 1
-    var targetHarvesters = 4
-    var targetBuilders = 1
-    var targetCaretakers = 2
-    var targetClaimers = 1
-
-    console.log("Harvesters = "+numHarvesters+"/"+targetHarvesters);   
-    console.log("Upgraders = "+numUpgraders+"/"+targetUpgraders);
-    console.log("Builders = "+numBuilders+"/"+targetBuilders);
-    console.log("Caretakers = "+numCaretakers+"/"+targetCaretakers);
-    console.log("Claimers = "+numClaimers+"/"+targetClaimers);
-
-
-    var energy = thisRoom.energyCapacityAvailable;
-
- //   console.log("Energy:"+thisRoom.energyAvailable+"/"+thisRoom.energyCapacityAvailable);
-
-    if ( numHarvesters < targetHarvesters ){
-        var ret = Game.spawns.Spawn1.createCustomCreep(energy, 'harvester');
-    }else if ( numUpgraders < targetUpgraders ){
-        Game.spawns.Spawn1.createCustomCreep(energy, 'upgrader');
-    }else if ( numBuilders < targetBuilders ){
-        Game.spawns.Spawn1.createCustomCreep(energy, 'builder');
-    }else if ( numCaretakers < targetCaretakers ){
-        Game.spawns.Spawn1.createCustomCreep(energy, 'caretaker');
-    }else if ( numClaimers < targetClaimers ){
-        Game.spawns.Spawn1.createCustomCreep(energy, 'claimer', targetRoom);
-    }
-
-    for (let name in Game.creeps){
-        var creep = Game.creeps[name];
-
-        if (creep.memory.role == 'upgrader'){
-            roleUpgrader.run(creep);
-        }
-
-        if (creep.memory.role == 'harvester'){
-            roleHarvester.run(creep);
-        }
-
-        if (creep.memory.role == 'builder'){
-            roleBuilder.run(creep);
-        }
-
-        if (creep.memory.role == 'caretaker'){
-            roleCaretaker.run(creep);
-        }
-
-        if (creep.memory.role == 'claimer'){
-            roleClaimer.run(creep);
-        }
-    }
-
-    var hostiles = thisRoom.find(FIND_HOSTILE_CREEPS);
-    var towers = thisRoom.find(FIND_MY_STRUCTURES, {filter: {structureType: STRUCTURE_TOWER}});
-    towers.forEach(tower => tower.attack(hostiles[0]));
 
 
 }
